@@ -12,6 +12,8 @@ import { PaginationModule } from 'ngx-bootstrap';
 import { ModalModule } from 'ngx-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HttpClientModule,
     PaginationModule.forRoot(),
     ModalModule.forRoot(),
-    NgbModule
+    NgbModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
